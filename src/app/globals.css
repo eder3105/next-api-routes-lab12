@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Paleta "biblioteca clásica" */
+@theme {
+  --color-ink: #13322b;        /* verde biblioteca */
+  --color-ink-soft: #1d4a40;
+  --color-paper: #f5f6f2;      /* fondo papel */
+  --color-brass: #b8892b;      /* latón / acento */
+  --color-brass-soft: #f3e8cf;
+  --color-oxblood: #8e2f3a;    /* acciones peligrosas */
+  --color-text: #1f2a27;
+  --color-muted: #66736f;
+  --color-line: #dde2dc;
+
+  --font-serif: var(--font-source-serif), Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+/* Foco visible para teclado */
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+/* Entrada de modales */
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+.animate-pop-in { animation: pop-in 160ms ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop-in, .animate-pulse { animation: none; }
+}
